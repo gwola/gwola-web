@@ -1,0 +1,36 @@
+@import '~antd/dist/antd.css';
+@import './login.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.ant-layout{
+  height: 100vh;
+}
+
+/* 美化webkit内核滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+}
+
+/* @media (min-width: 768px) {
+
+} */
+
+@media screen and (max-width: 768px){
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+  }
+}
+

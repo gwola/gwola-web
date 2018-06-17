@@ -5,7 +5,7 @@ import history from './history';
 
 export default class ApiService {
 
-  static CallApi(method: string, path: string, params: object, completedCallback: Function, failedCallback: Function): void {
+  static CallApi(method: string, path: string, params: any, completedCallback: Function, failedCallback: Function): void {
 
     let url = path;
     if (method === "GET" && params) {
@@ -13,9 +13,14 @@ export default class ApiService {
       url += "?" + Object.keys(params).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(params[key])).join('&');
     }
 
+    if (path === "/login" && params) {
+      //put them into a string (eg. "param1=val1&param2=val2")
+      params = Object.keys(params).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(params[key])).join('&');
+    }
+
     // Axios.interceptors.response.use(
     //   (response) => {
-    //     //console.log(response.data)
+    //     console.log(response.data)
 
     //     return response;
     //   },
@@ -29,7 +34,6 @@ export default class ApiService {
     // );
 
     const apiCall = (url: any, options: any) => {
-
       if (method === "GET") {
         //GET ------------------------------
         Axios.get(url, options)
@@ -52,7 +56,7 @@ export default class ApiService {
     }
     apiCall(url, {
       headers: {
-        'Authorization': sessionStorage.getItem('key')
+        'accessToken': sessionStorage.getItem('userToken')
       }
     });
   }

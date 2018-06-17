@@ -25,9 +25,9 @@ class LoginContainer extends React.Component<Props, any>{
   componentWillReceiveProps(nextProps: any) {
     const { user } = nextProps;
     if (user.SaveResult.Status === 1) {
-      //console.log(user)
+      console.log(user)
       if (user.user.success) {
-        sessionStorage.setItem('key', JSON.stringify('11111111111111111111'));
+        sessionStorage.setItem('userToken', user.user.result);
         history.push('/test');
       } else {
         message.info(user.user.message);

@@ -22,7 +22,7 @@ export const actionCreators = {
   login: (username: any, password: any): AppThunkAction<KnownAction> => (dispatch, getState) => {
     ApiService.CallApi(
       "POST",
-      "/user/user",
+      "/login",
       {
         username: username,
         password: password
@@ -53,7 +53,8 @@ const unloadedState: AppState = {
   user: {
     status: 0,
     success: false,
-    message: ''
+    message: '',
+    token: '',
   },
   loading: false,
   SaveResult: {

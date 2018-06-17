@@ -23,7 +23,7 @@ class HeaderContainer extends React.Component<any, any> {
   render() {
     return (
       <Header>
-        <div className="logo">demo</div>
+        {/* <div className="logo">demo</div> */}
         <div className="header-menu">
           <NavLink to={"/test"}>test</NavLink>
           <NavLink to={"/test2"}>test2</NavLink>

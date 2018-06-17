@@ -21,9 +21,10 @@ export const actionCreators = {
   userManage: (): AppThunkAction<KnownAction> => (dispatch, getState) => {
     ApiService.CallApi(
       "GET",
-      "/usermanage/usermanagement",
+      "/user/info",
       {},
       (data: any) => {
+        console.log(data)
         //call this after the data comes back
         dispatch({ type: "USER_MANAGE_RECEIVED", payload: data });
       },

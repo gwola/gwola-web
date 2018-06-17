@@ -1,17 +1,22 @@
 import * as React from 'react';
-import '../../css/Login/index.css';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import history from '../../history';
 const FormItem = Form.Item;
+import * as NProgress from 'nprogress';
+import '../../../node_modules/nprogress/nprogress.css';
 
-class NormalLoginForm extends React.Component<any, any> {
+interface Props {
+  login: any;
+  form: any;
+}
+
+class NormalLoginForm extends React.Component<Props, any> {
 
   handleSubmit = (e: any) => {
     e.preventDefault();
     this.props.form.validateFields((err: any, values: any) => {
       if (!err) {
-        console.log('Received values of form: ', values);
-        history.push('/home');
+        NProgress.start();
+        this.props.login(values.userName, values.password)
       }
     });
   }

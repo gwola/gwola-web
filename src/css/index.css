@@ -1,36 +1,58 @@
 @import '~antd/dist/antd.css';
-@import './login.css';
-
+@import './Login/index.css';
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
 
-.ant-layout{
-  height: 100vh;
+#root,.ant-layout{
+  height: 100%;
 }
 
-/* 美化webkit内核滚动条 */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+.ant-layout-header{
+  padding: 0 30px;
+  height: 50px;
+  background: #45484b;
+  line-height: 50px;
+  color: #fff;
 }
-::-webkit-scrollbar-thumb {
-  background-color: #bbb;
-}
-
-/* @media (min-width: 768px) {
-
-} */
-
-@media screen and (max-width: 768px){
-  ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #bbb;
-  }
+.header-menu{
+  width: 100%;
 }
 
+.header-menu > a{
+  padding: 0 20px;
+  color:#fff;
+  height: 50px;
+  display: inline-block;
+}
+
+.header-menu .active{
+  background: #1890ff;
+}
+
+.ant-dropdown-link{
+  width: 150px;
+  color: rgba(0, 0, 0, 0.65)
+}
+
+.logo {
+  width: 120px;
+  height: 30px;
+  background: rgba(255,255,255,.2);  
+  margin: 10px 20px;
+  float: left;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.ant-dropdown-menu-item > a{
+  width: 150px;
+  color: rgba(0, 0, 0, 0.65)
+}
+
+.ant-layout-content{
+  padding: 20px 40px;
+}

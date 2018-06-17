@@ -13,19 +13,20 @@ export default class ApiService {
       url += "?" + Object.keys(params).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(params[key])).join('&');
     }
 
-    Axios.interceptors.response.use(
-      (response) => {
-        //console.log(response.data)
-        return response;
-      },
-      (error) => {
-        //console.log(error.message === 'Request failed with status code 404')
-        if (error.message === 'Request failed with status code 404') {
-          history.push('/404');
-        }
+    // Axios.interceptors.response.use(
+    //   (response) => {
+    //     //console.log(response.data)
 
-      }
-    );
+    //     return response;
+    //   },
+    //   (error) => {
+    //     //console.log(error.message === 'Request failed with status code 404')
+    //     if (error.message === 'Request failed with status code 404') {
+    //       history.push('/404');
+    //     }
+
+    //   }
+    // );
 
     const apiCall = (url: any, options: any) => {
 
@@ -49,7 +50,11 @@ export default class ApiService {
           });
       }
     }
-    apiCall(url, {});
+    apiCall(url, {
+      headers: {
+        'Authorization': sessionStorage.getItem('key')
+      }
+    });
   }
 
 }

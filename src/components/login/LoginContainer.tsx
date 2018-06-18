@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { AppThunkAction } from '../../store/index';
 import { actionCreators, KnownAction } from '../../store/appStore';
+import { actionCreators as uiActionCreators, KnownAction as uiKnownAction } from '../../store/userInfoStore';
 import NormalLoginForm from './LoginForm';
 import history from '../../history';
 import { User } from '../../type/user';
@@ -12,6 +13,7 @@ import { message } from 'antd';
 interface Props {
   user: User;
   login: () => AppThunkAction<KnownAction>;
+  getUserInfo: () => AppThunkAction<uiKnownAction>;
 }
 
 class LoginContainer extends React.Component<Props, any>{
@@ -25,10 +27,11 @@ class LoginContainer extends React.Component<Props, any>{
   componentWillReceiveProps(nextProps: any) {
     const { user } = nextProps;
     if (user.SaveResult.Status === 1) {
-      console.log(user)
+      // console.log(user)
       if (user.user.success) {
         sessionStorage.setItem('userToken', user.user.result);
-        history.push('/test');
+        this.props.getUserInfo();
+        history.push('/dashboard');
       } else {
         message.info(user.user.message);
       }
@@ -52,6 +55,7 @@ export default connect(
     user: state.user
   }),
   {
-    login: actionCreators.login
+    login: actionCreators.login,
+    getUserInfo: uiActionCreators.getUserInfo
   }
 )(LoginContainer);

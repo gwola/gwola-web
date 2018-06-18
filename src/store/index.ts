@@ -1,14 +1,14 @@
 import * as AppStore from './appStore';
-import * as UserManage from './userManageStore';
+import * as UserInfoStore from './userInfoStore';
 
 export interface ApplicationState {
   user: AppStore.AppState,
-  userManage: UserManage.UserManageState,
+  userInfo: UserInfoStore.UserInfoState,
 }
 
 export const reducers = {
   user: AppStore.UserReducer,
-  userManage: UserManage.UserManageReducer,
+  userInfo: UserInfoStore.UserInfoReducer,
 };
 
 export interface AppThunkAction<TAction> {

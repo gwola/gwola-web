@@ -84,7 +84,7 @@
         ],
         "switch-default": true,
         "trailing-comma": [
-            false
+            true
         ],
         "triple-equals": [
             true,

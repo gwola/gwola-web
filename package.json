@@ -12,7 +12,7 @@
     "@types/react-router-redux": "^5.0.13",
     "@types/redux": "^3.6.0",
     "antd": "^3.4.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "3",
     "moment": "^2.22.1",
     "nprogress": "^0.2.0",
